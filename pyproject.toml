@@ -1,0 +1,17 @@
+[project]
+name = "make-ugc"
+version = "0.1.0"
+description = "Generate videos using Gemini Veo"
+requires-python = ">=3.12"
+dependencies = [
+    "google-genai>=1.70.0",
+    "python-dotenv>=1.0.0",
+    "rich>=14.0.0",
+]
+
+[project.scripts]
+make-ugc = "make_ugc.__main__:main"
+
+[build-system]
+requires = ["setuptools>=75.0"]
+build-backend = "setuptools.build_meta"
