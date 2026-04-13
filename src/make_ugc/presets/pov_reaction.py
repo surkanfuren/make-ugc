@@ -1,18 +1,26 @@
 POV_REACTION = """\
-A confident Gen Z girl in her early 20s recording a selfie video on her phone. \
-She holds the phone in her extended arm and freely moves it around — tilting it up, \
-bringing it closer, angling it to the side, finding her best angles like she knows \
-exactly how she looks. The camera angle keeps changing as she shifts the phone casually.
+Handheld front-facing smartphone camera, unstable natural movement, slight shake and drift.
 
-She has a playful, self-assured energy. She does small flirty gestures — a slight head \
-tilt, running her hand through her hair, a subtle smirk, raising her eyebrows with a \
-confident half-smile, briefly looking away then back at the camera. She is showing off \
-in a casual effortless way, not performing or acting surprised. No speaking, no dialogue.
+A Gen Z girl in her early 20s records herself in a close-up selfie framing. Her face fills most of the frame, slightly off-center and imperfectly cropped.
 
-She is in a normal bedroom with natural daylight. Casual everyday outfit. The vibe is \
-relaxed and authentic, not staged or overly produced.
+She is silently reacting as if thinking or listening, making subtle micro-expressions:
+small smirk, slight eyebrow raise, minimal head tilt, relaxed eye movement.
 
-Selfie camera perspective, slightly wide angle distortion from a phone front camera. \
-Natural handheld motion as she repositions the phone between angles. Shot on iPhone, \
-raw unedited footage look.\
+Indoor environment, normal bedroom, plain and unstaged.
+
+Natural daylight from a window, soft and slightly uneven lighting.
+
+Style: realistic smartphone UGC video, not cinematic, slight motion blur, slight compression artifacts.
+
+Audio: complete silence, no voice, no speech, no lip-sync, no ambient sound, no audio track.
+"""
+
+POV_REACTION_NEGATIVE = """\
+TikTok interface, app UI, text overlay, logo, watermark, buttons, recording interface, \
+camera controls, phone visible in frame, hand holding phone, mirror selfie, two arms visible, \
+extended arm, phone screen, phone case, cinematic camera movement, smooth dolly, smooth motion, \
+stabilized camera, tripod, gimbal, steady cam, gliding camera, crane shot, color grading, \
+professional lighting, studio setup, robotic movement, frozen pose, perfectly still, \
+mannequin-like, smooth gestures, speaking, talking, dialogue, audio, sound effects, \
+music, singing, voice, filter, beauty filter, face tune\
 """

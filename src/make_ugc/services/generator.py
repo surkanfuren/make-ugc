@@ -31,6 +31,7 @@ class VideoGenerator:
             aspect_ratio=config.aspect_ratio,
             resolution=config.resolution,
             person_generation=PersonGeneration.ALLOW_ADULT if has_refs else PersonGeneration.ALLOW_ALL,
+            negative_prompt=config.negative_prompt if not has_refs else None,
         )
 
         if has_refs:
@@ -100,9 +101,19 @@ class VideoGenerator:
                 time.sleep(config.poll_interval)
                 operation = self.client.operations.get(operation)
 
+        if operation.error:
+            console.print(f"[bold red]Generation failed with error:[/]")
+            console.print(f"  Code: {operation.error.code}")
+            console.print(f"  Message: {operation.error.message}")
+            if operation.error.details:
+                for detail in operation.error.details:
+                    console.print(f"  Detail: {detail}")
+            raise SystemExit(1)
+
         if not operation.response or not operation.response.generated_videos:
             console.print("[bold red]Generation failed — no video returned.[/]")
-            console.print("[dim]This usually means the content was blocked by safety filters or audio processing failed.[/]")
+            console.print(f"  Raw operation metadata: {operation.metadata}")
+            console.print(f"  Raw response: {operation.response}")
             raise SystemExit(1)
 
         video = operation.response.generated_videos[0]

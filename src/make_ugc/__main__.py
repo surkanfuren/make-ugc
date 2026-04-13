@@ -15,7 +15,7 @@ def _add_shared_options(*parsers: argparse.ArgumentParser) -> None:
     for p in parsers:
         p.add_argument("--model", type=VeoModel, default=VeoModel.VEO_3_1_FAST, choices=list(VeoModel))
         p.add_argument("--aspect", type=AspectRatio, default=AspectRatio.PORTRAIT, choices=list(AspectRatio))
-        p.add_argument("--resolution", type=Resolution, default=Resolution.FULL_HD, choices=list(Resolution))
+        p.add_argument("--resolution", type=Resolution, default=Resolution.HD, choices=list(Resolution))
         p.add_argument("--duration", type=int, default=8, choices=[4, 6, 8])
         p.add_argument("--output-dir", type=Path, default=Path("output"))
 
@@ -65,10 +65,13 @@ def main() -> None:
 
     api_key = load_api_key()
 
-    prompt = args.prompt if args.command != "preset" else get_preset(args.name).prompt
+    preset = get_preset(args.name) if args.command == "preset" else None
+    prompt = preset.prompt if preset else args.prompt
+    negative_prompt = preset.negative_prompt if preset else None
 
     config = VideoConfig(
         prompt=prompt,
+        negative_prompt=negative_prompt,
         model=args.model,
         aspect_ratio=args.aspect,
         resolution=args.resolution,

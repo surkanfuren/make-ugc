@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from .pov_reaction import POV_REACTION
+from .pov_reaction import POV_REACTION, POV_REACTION_NEGATIVE
 
 
 @dataclass(frozen=True)
@@ -8,6 +8,7 @@ class Preset:
     name: str
     description: str
     prompt: str
+    negative_prompt: str | None = None
 
 
 PRESETS: dict[str, Preset] = {
@@ -15,6 +16,7 @@ PRESETS: dict[str, Preset] = {
         name="pov-reaction",
         description="Gen Z girl reacting to something on her phone — silent, casual, front-camera POV",
         prompt=POV_REACTION,
+        negative_prompt=POV_REACTION_NEGATIVE,
     ),
 }
 

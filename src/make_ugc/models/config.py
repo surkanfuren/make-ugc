@@ -33,9 +33,10 @@ class VideoConfig:
     prompt: str
     model: VeoModel = VeoModel.VEO_3_1
     aspect_ratio: AspectRatio = AspectRatio.PORTRAIT
-    resolution: Resolution = Resolution.FULL_HD
+    resolution: Resolution = Resolution.HD
     duration: int = 8
     output_dir: Path = field(default_factory=lambda: Path("output"))
+    negative_prompt: str | None = None
     poll_interval: int = 10
 
     def __post_init__(self) -> None:
