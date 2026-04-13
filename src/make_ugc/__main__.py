@@ -8,7 +8,7 @@ from .utils import load_api_key
 
 
 CHARACTERS_DIR = Path(__file__).resolve().parent.parent.parent / "characters"
-DEFAULT_CHARACTER = CHARACTERS_DIR / "emma.png"
+DEFAULT_CHARACTER = CHARACTERS_DIR / "jane.jpg"
 
 
 def _add_shared_options(*parsers: argparse.ArgumentParser) -> None:
